@@ -94,7 +94,7 @@ public class ArrayPratice {
         return -1;
     }
 
-    //7. Find Repeating Integer in an Array
+    //6. Find Repeating Integer in an Array
     // O(n)
     public int findNonUnique (int[] arr) {
         HashSet<Integer> hs = new HashSet<Integer>();
@@ -108,7 +108,7 @@ public class ArrayPratice {
         return -1;
     }
 
-    //7. Find First Non-Repeating Integer in an Array
+    //6. Find First Non-Repeating Integer in an Array
     // HashMap solution
     // O(n)
     public int findFirstUnique (int[] arr) {
@@ -127,40 +127,89 @@ public class ArrayPratice {
         return - 1;
     }
 
-    //7. Find First Non-Repeating Integer in an Array
+    //6. Find First Non-Repeating Integer in an Array
     // Brute Force solution
     // O(n^2)
     public int findFirstUnique2(int[] arr) {
-        //Inside Inner Loop Check Each index of outerLoop If it's repeated in array
-        //If it's not repeated then return this as first unique Integer
         boolean isRepeated = false;
-
         for (int i = 0; i < arr.length; i++) {
-
             for (int j = 0; j < arr.length; j++) {
-
                 if (arr[i] == arr[j] && i != j) {
                     isRepeated = true;
                     break;
                 }
-            } //end of InnerLoop
-
-            if (isRepeated == false) {
+            } if (isRepeated == false) {
                 return arr[i];
-            }
-            else {
+            } else {
                 isRepeated = false;
             }
-
-        } //end of OuterLoop
+        }
         return - 1;
+    }
+
+    //7. Find Second Maximum Value in an Array
+    //O(nlogn)
+    public int findSecondMaximum (int[] arr) {
+        Arrays.sort(arr);
+        int index = arr.length - 2;
+        return arr[index];
+    }
+
+    //8. Right Rotate the Array by One Index
+    //O(n)
+    public void rotateArray (int[] arr) {
+        int lastIndex = arr[arr.length-1];
+        for (int i = arr.length-2; i >= 0; i--) {
+            arr[i+1] = arr[i];
+            if(i==0){
+                arr[i] = lastIndex;
+            }
+        }
+    }
+
+    //9. Re-arrange Positive & Negative Values
+    // O(n^2)
+    public void reArrange (int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] >= 0) {
+                for (int j = 0; j < arr.length; j++) {
+                    if (arr[j] < 0) {
+                        int temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+        }
+    }
+
+    //10. Rearrange Sorted Array in Max/Min Form
+    //O(n)
+    public void maxMin (int[] arr) {
+        Arrays.sort(arr);
+        int medium = arr.length / 2;
+        int high = arr.length-1;
+        int low = 0;
+        int[] array = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            array[i] = arr[i];
+        }
+        for (int i = 0; i < array.length; i++){
+            if (i % 2 == 0 && high>=medium) {
+                arr[i] = array[high];
+                high--;
+            } else if (i % 2 == 1 && low <= medium) {
+                arr[i] = array[low];
+                low++;
+            }
+        }
     }
 
 
     public static void main (String[] args) {
         ArrayPratice ap = new ArrayPratice();
         int[] arr = {1,21,3,14,5,60,7,6};
-        ap.findSum(arr, 81);
+        ap.maxMin(arr);
 
     }
 }
