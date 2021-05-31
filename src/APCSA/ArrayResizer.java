@@ -1,33 +1,55 @@
 package APCSA;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class ArrayResizer {
     public static boolean isNonZeroRow (int[][] array2D, int r) {
-        for (int column = 0; column < array2D[0].length; column++) {
-            if (array2D[r][column] == 0) {
-                return false;
+        for (int i = r; i < r+1; i++) {
+            for (int j = 0; i < array2D[i].length; j++) {
+                if (array2D[i][j] == 0) {
+                    return false;
+                } else {
+                    return true;
+                }
             }
         }
-        //It has strict condition to return ture, so we eliminate the false case in above
         return true;
     }
 
     public static int numNonZeroRows (int[][] array2D) {
-
-        return -1;
+        int count = array2D.length;
+        for (int i = 0; i < array2D.length; i++) {
+            if (isNonZeroRow(array2D, i)) {
+                count--;
+            }
+        }
+        return count;
     }
 
     public static int[][] resize (int[][] array2D) {
-        int ifZeroRowExists = numNonZeroRows(array2D);
-        int[][] newArray = new int[ifZeroRowExists][array2D[0].length];
+        int array[][] = new int[numNonZeroRows(array2D)][array2D[0].length];
 
-        int current = 0;
+        int count = 0;
         for (int i = 0; i < array2D.length; i++) {
-            //If it return ture, which means that this row contains no zero elements, add it to newArray
-            if (isNonZeroRow(array2D, i)) {
-                newArray[current] = array2D[i];
-                current++;
+            if (isNonZeroRow(array2D, i) == true) {
+                array[count] = array2D[i];
+                count++;
             }
         }
-        return newArray;
+        return array;
+    }
+
+    public static void main (String[] args) {
+        ArrayResizer ar = new ArrayResizer();
+        int [][] arr = {{1 , 2, 3, 4}, {0, 1, 2, 3}, {0 , 0, 0 , 0}, {1, 2, 3 , 5}};
+        int [][] smaller = ArrayResizer.resize(arr);
+        for (int i = 0; i < smaller.length; i++) {
+            for ( int j = 0; j < smaller[i].length; j++) {
+                System.out.print(smaller[i][j]);
+            }
+            System.out.println();
+        }
+
     }
 }
