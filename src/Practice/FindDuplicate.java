@@ -1,4 +1,4 @@
-package com.leetcode;
+package Practice;
 import java.util.Arrays;
 
 public class FindDuplicate {

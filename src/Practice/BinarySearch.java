@@ -1,6 +1,4 @@
-package com.leetcode;
-
-import java.util.Arrays;
+package Practice;
 
 public class BinarySearch {
     // If found, return index

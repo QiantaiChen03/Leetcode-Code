@@ -1,6 +1,4 @@
-package com.leetcode;
-
-import java.util.Arrays;
+package SortingPractice;
 
 public class InsertionSort {
 

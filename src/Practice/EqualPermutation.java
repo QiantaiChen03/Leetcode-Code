@@ -1,4 +1,4 @@
-package com.leetcode;
+package Practice;
 
 public class EqualPermutation {
 

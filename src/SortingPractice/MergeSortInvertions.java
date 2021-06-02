@@ -1,4 +1,4 @@
-package com.leetcode;
+package SortingPractice;
 
 public class MergeSortInvertions {
 
