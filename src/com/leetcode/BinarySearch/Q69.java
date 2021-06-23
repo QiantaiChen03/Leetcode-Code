@@ -13,17 +13,16 @@ public class Q69 {
         int right = x;
 
         while (left <= right) {
-            int mid = (left + right) / 2;
-            if (mid*mid > x) {
+            int mid = (right + left) / 2;
+            if ((long)mid*mid > x) {
                 right = mid - 1;
-                System.out.println(right);
-            } else if (mid*mid < x) {
+            } else if ((long)mid*mid < x) {
                 left = mid + 1;
-                System.out.println(left);
             } else {
                 return mid;
             }
         }
+
         return right;
     }
 
