@@ -20,6 +20,7 @@ public class BinarySearch {
                 return binarySearch(arr, target, mid+1, right);
             }
         }
+        //right < left? right:-1;
     }
 
     private void insertionSort (int arr[]) {
