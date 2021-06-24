@@ -1,5 +1,7 @@
 package Practice;
 
+import java.util.Arrays;
+
 public class BinarySearch2 {
     /*
      * Find the index of target value, return -1 if not found
@@ -101,6 +103,7 @@ public class BinarySearch2 {
         BinarySearch2 bs = new BinarySearch2();
         //int[] arr = {2,3,3,3,3,3,5,6,8,9,9,30};
         int[] arr = {1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,5,6,8,9,9,30};
+        Arrays.sort(arr); // O(nlongn)
 
         System.out.println(bs.binarySearch(arr, 30));
         System.out.println(bs.firstGreaterOrEqual(arr, 30));
