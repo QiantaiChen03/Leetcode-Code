@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.BinarySearch;
 
 public class Q33 {
     // Search in Rotated Array
